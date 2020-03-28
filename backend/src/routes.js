@@ -1,9 +1,16 @@
 import { Router } from 'express';
 
 import ScheduleController from './app/controllers/Schedule';
+import ClinicController from './app/controllers/Clinic';
+
+import { createSchedule } from './app/middlewares/schedule';
 
 const routes = new Router();
 
-routes.post('/schedules', ScheduleController.store);
+routes.post('/schedules', createSchedule, ScheduleController.store);
+
+routes.get('/specialties', ClinicController.findSpecialtie);
+routes.get('/professional', ClinicController.findProfessional);
+routes.get('/source', ClinicController.findSource);
 
 export default routes;
