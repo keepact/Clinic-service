@@ -1,11 +1,12 @@
-import Schedule from '../models/Schedule';
+import ScheduleRepository from '../repositories/Schedule';
 
 class ScheduleController {
   async store(req, res) {
-    const schedule = await Schedule.create(req.body);
+    const form = req.body;
 
-    return res.json(schedule);
+    const result = await new ScheduleRepository().create(form);
+
+    return res.status(result ? 201 : 400).json(result);
   }
 }
-
 export default new ScheduleController();

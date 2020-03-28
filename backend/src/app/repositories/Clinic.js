@@ -13,7 +13,9 @@ class ClinicRepository {
 
       return response.data;
     } catch (err) {
-      console.log(err);
+      console.error(
+        `Não foi possível acessar as especialidades dos médicos: ${JSON.stringify(err)}`
+      );
     }
     return undefined;
   }
@@ -26,7 +28,9 @@ class ClinicRepository {
 
       return response.data;
     } catch (err) {
-      console.log(err);
+      console.error(
+        `Não foi possível acessar a lista de profissionais: ${JSON.stringify(err)}`
+      );
     }
     return undefined;
   }
@@ -39,7 +43,9 @@ class ClinicRepository {
 
       return response.data;
     } catch (err) {
-      console.log(err);
+      console.error(
+        `Não foi possível acessar as formas de indicação: ${JSON.stringify(err)}`
+      );
     }
     return undefined;
   }
