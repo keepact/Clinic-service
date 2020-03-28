@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
+import ScheduleController from './app/controllers/Schedule';
+
 const routes = new Router();
 
-routes.get('/', (req, res) => {
-  return res.json({ message: 'Hello World' });
-});
+routes.post('/schedules', ScheduleController.store);
 
 export default routes;
