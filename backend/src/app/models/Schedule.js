@@ -8,7 +8,7 @@ class Schedule extends Model {
         specialty_id: Sequelize.INTEGER,
         professional_id: Sequelize.INTEGER,
         source_id: Sequelize.INTEGER,
-        cpf: Sequelize.INTEGER,
+        cpf: Sequelize.STRING,
         birthdate: Sequelize.DATE,
       },
       {
