@@ -6,7 +6,7 @@ class ClinicController {
 
     const result = await clinicRepository.getSpecialties();
 
-    return res.status(result ? 201 : 400).json(result);
+    return res.status(result ? 200 : 500).json(result);
   }
 
   async findProfessional(req, res) {
@@ -14,7 +14,7 @@ class ClinicController {
 
     const result = await clinicRepository.getProfessional();
 
-    return res.status(result ? 201 : 400).json(result);
+    return res.status(result ? 200 : 500).json(result);
   }
 
   async findSource(req, res) {
@@ -22,7 +22,7 @@ class ClinicController {
 
     const result = await clinicRepository.getListSource();
 
-    return res.status(result ? 201 : 400).json(result);
+    return res.status(result ? 200 : 500).json(result);
   }
 }
 export default new ClinicController();
