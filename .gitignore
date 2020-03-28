@@ -1,0 +1,19 @@
+# OSX
+#
+.DS_Store
+
+# node.js
+#
+backend/node_modules/
+npm-debug.log
+yarn-error.log
+
+# frontend
+
+frontend/node_modules/
+
+# Outers
+
+#android/keystores/umessage-release.keystore
+.env
+**/*/res/values/secrets.xml
