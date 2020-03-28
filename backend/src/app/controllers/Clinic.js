@@ -10,7 +10,6 @@ class ClinicController {
   }
 
   async findProfessional(req, res) {
-
     const clinicRepository = new ClinicRepository();
 
     const result = await clinicRepository.getProfessional();
@@ -19,7 +18,6 @@ class ClinicController {
   }
 
   async findSource(req, res) {
-
     const clinicRepository = new ClinicRepository();
 
     const result = await clinicRepository.getListSource();
