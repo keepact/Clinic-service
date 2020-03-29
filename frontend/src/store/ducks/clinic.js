@@ -73,10 +73,10 @@ export function getSpecialties() {
   };
 }
 
-export function getProfessionals(id) {
+export function getProfessionals(data) {
   return {
     type: Types.PROFESSIONALS_REQUEST,
-    payload: { id },
+    payload: { data },
   };
 }
 

@@ -8,11 +8,11 @@ import { Types } from '../ducks/clinic';
 
 export function* findSpecialties() {
   try {
-    const { data } = yield call(services.specialties);
+    const { data: speciality } = yield call(services.specialties);
 
     yield put({
       type: Types.SPECIALTIES_SUCCESS,
-      payload: { data: data.content },
+      payload: { data: speciality.content },
     });
   } catch (err) {
     toast.error(err.response.data.error);
@@ -23,14 +23,22 @@ export function* findSpecialties() {
 }
 
 export function* findProfessionals({ payload }) {
+  const { data } = payload;
+
   try {
-    const { data } = yield call(services.professionals, payload.id);
+    const { data: professional } = yield call(
+      services.professionals,
+      data.id || data,
+    );
 
     yield put({
       type: Types.PROFESSIONALS_SUCCESS,
-      payload: { data: data.content },
+      payload: { data: professional.content },
     });
-    history.push('professionals');
+
+    if (!data.refresh) {
+      history.push('professionals');
+    }
   } catch (err) {
     toast.error(err.response.data.error);
     yield put({
