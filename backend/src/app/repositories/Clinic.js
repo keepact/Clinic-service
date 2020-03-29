@@ -28,7 +28,7 @@ class ClinicRepository {
     return undefined;
   }
 
-  async getProfessional() {
+  async getProfessional(id) {
     try {
       Object.assign(api.defaults, {
         headers: {
@@ -37,7 +37,13 @@ class ClinicRepository {
         },
       });
 
-      const response = await api.get('professional/list');
+      const response = await api.request({
+        url: 'professional/list',
+        method: 'GET',
+        data: {
+          especialidade_id: id,
+        },
+      });
 
       return response.data;
     } catch (err) {
