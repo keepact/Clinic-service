@@ -19,7 +19,7 @@ function Selector({
         options={options}
         onBlur={() => {}}
         getOptionValue={(option) => option.especialidade_id}
-        getOptionLabel={(option) => option.nome}
+        getOptionLabel={(option) => option.nome || option.nome_origem}
         className="react-select-container"
         classNamePrefix="react-select"
         placeholder={placeholder}

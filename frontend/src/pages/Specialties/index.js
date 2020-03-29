@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import Header from '~/components/Header';
 import Select from '~/components/FormFields/Select';
 
-import { getProfessionals } from '~/store/ducks/clinic';
+import { getProfessionals, saveProfessional } from '~/store/ducks/clinic';
 
 import {
   Container,
@@ -20,12 +20,13 @@ import {
 
 function Specialties({ handleSubmit }) {
   const dispatch = useDispatch();
-
-  const { specialties, professionals } = useSelector((state) => state.clinic);
-
+  const { specialties, speciality, professionals } = useSelector(
+    (state) => state.clinic,
+  );
   const transformData = (data) => {
     return {
       id: data.especialidade_id,
+      nome: data.nome,
       refresh: true,
     };
   };
@@ -35,7 +36,7 @@ function Specialties({ handleSubmit }) {
       <Header />
       <Container>
         <Content>
-          <h1>Resultados da busca</h1>
+          <h1>Resultados da busca por {speciality.nome}</h1>
           <form id="Form" onSubmit={handleSubmit}>
             <Field
               name="speciality"
@@ -72,7 +73,11 @@ function Specialties({ handleSubmit }) {
                 </div>
               </Wrapper>
               <ButtonContainer>
-                <button type="button">Agendar</button>
+                <button
+                  type="button"
+                  onClick={() => dispatch(saveProfessional(professional))}>
+                  Agendar
+                </button>
               </ButtonContainer>
             </Doctor>
           ))}

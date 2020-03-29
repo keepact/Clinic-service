@@ -20,6 +20,7 @@ const INITIAL_STATE = {
   professionals: [],
   professional: {},
   specialties: [],
+  speciality: {},
   source: [],
 };
 
@@ -37,6 +38,7 @@ export default function clinic(state = INITIAL_STATE, action) {
       }
       case Types.PROFESSIONALS_REQUEST: {
         draft.loading = true;
+        draft.speciality = action.payload.data;
         break;
       }
       case Types.PROFESSIONALS_SUCCESS: {

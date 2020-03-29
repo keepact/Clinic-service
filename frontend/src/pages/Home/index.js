@@ -16,7 +16,6 @@ import { Container, Content } from './styles';
 
 function Home({ handleSubmit, submitting }) {
   const dispatch = useDispatch();
-
   const { specialties: data } = useSelector((state) => state.clinic);
 
   const specialties = useMemo(() => data, [data]);
@@ -33,7 +32,7 @@ function Home({ handleSubmit, submitting }) {
         <form
           id="Form"
           onSubmit={handleSubmit((values) =>
-            dispatch(getProfessionals(values.speciality.especialidade_id)),
+            dispatch(getProfessionals(values.speciality)),
           )}>
           <Field
             name="speciality"

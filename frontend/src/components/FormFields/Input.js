@@ -30,6 +30,7 @@ function Input({
 
 Input.defaultProps = {
   label: '',
+  type: 'text',
   placeholder: '',
   disabled: false,
 };
@@ -38,7 +39,7 @@ Input.propTypes = {
   input: PropTypes.oneOfType([PropTypes.object]).isRequired,
   placeholder: PropTypes.string,
   label: PropTypes.string,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   htmlFor: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   meta: PropTypes.oneOfType([PropTypes.object]).isRequired,
