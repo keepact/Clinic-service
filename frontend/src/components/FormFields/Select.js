@@ -13,7 +13,7 @@ function Selector({
 }) {
   return (
     <>
-      <label htmlFor={label}>{label}</label>
+      {label && <label htmlFor={label}>{label}</label>}
       <MySelector
         {...input}
         options={options}
