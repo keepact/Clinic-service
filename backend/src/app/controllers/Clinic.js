@@ -10,9 +10,11 @@ class ClinicController {
   }
 
   async findProfessional(req, res) {
+    const { especialidade_id } = req.body;
+
     const clinicRepository = new ClinicRepository();
 
-    const result = await clinicRepository.getProfessional();
+    const result = await clinicRepository.getProfessional(especialidade_id);
 
     return res.status(result ? 200 : 500).json(result);
   }
