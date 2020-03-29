@@ -11,7 +11,13 @@ import Input from '~/components/FormFields/Input';
 
 import { getSource } from '~/store/ducks/clinic';
 
-import { Container, Content } from './styles';
+import {
+  Container,
+  Content,
+  TitleContainer,
+  ButtonContainer,
+  SubmitButton,
+} from './styles';
 
 function Form({ handleSubmit }) {
   const dispatch = useDispatch();
@@ -19,55 +25,75 @@ function Form({ handleSubmit }) {
 
   useEffect(() => {
     dispatch(getSource());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
       <Header />
+      <ButtonContainer>
+        <button type="button" onClick>
+          Voltar
+        </button>
+      </ButtonContainer>
+      <TitleContainer>
+        <h1>Preencha abaixo os dados para o agendamento</h1>
+      </TitleContainer>
 
       <Container>
         <Content>
           <form id="Form" onSubmit={handleSubmit}>
-            <Field
-              name="name"
-              htmlFor="name"
-              placeholder="Nome Completo"
-              component={Input}
-            />
-            <Field
-              name="email"
-              type="email"
-              htmlFor="email"
-              placeholder="Email"
-              component={Input}
-            />
-            <Field
-              name="source"
-              htmlFor="source"
-              placeholder="Como conheceu?"
-              options={source && source}
-              component={Select}
-            />
-            <Field
-              name="birthdate"
-              htmlFor="birthdate"
-              placeholder="Nascimento"
-              component={DatePicker}
-            />
-            <Field
-              name="cpf"
-              htmlFor="cpf"
-              placeholder="CPF"
-              component={Input}
-            />
-            <Field
-              name="date"
-              htmlFor="date"
-              placeholder="Data do agendamento"
-              component={DatePicker}
-            />
+            <div>
+              <Field
+                name="name"
+                htmlFor="name"
+                placeholder="Nome Completo"
+                component={Input}
+              />
+              <Field
+                name="email"
+                type="email"
+                htmlFor="email"
+                placeholder="Email"
+                component={Input}
+              />
+            </div>
+            <div>
+              <Field
+                name="birthdate"
+                htmlFor="birthdate"
+                placeholderText="Nascimento"
+                component={DatePicker}
+              />
+              <Field
+                name="source"
+                htmlFor="source"
+                placeholder="Como conheceu?"
+                options={source && source}
+                component={Select}
+              />
+            </div>
+            <div>
+              <Field
+                name="time"
+                htmlFor="time"
+                type="time"
+                placeholder="Hora do agendamento"
+                component={Input}
+              />
+              <Field
+                name="cpf"
+                htmlFor="cpf"
+                placeholder="CPF"
+                component={Input}
+              />
+            </div>
           </form>
         </Content>
+        <SubmitButton>
+          <button type="button" onClick>
+            Enviar
+          </button>
+        </SubmitButton>
       </Container>
     </>
   );

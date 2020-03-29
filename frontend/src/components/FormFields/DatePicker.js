@@ -22,7 +22,7 @@ function DatePicker({
 
   return (
     <>
-      <label htmlFor={label}>{label}</label>
+      {label && <label htmlFor={label}>{label}</label>}
 
       <ReactDatePicker
         {...input}

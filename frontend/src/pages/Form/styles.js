@@ -1,11 +1,90 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
-  margin-top: 60px;
+  max-width: 800px;
+  margin: 50px auto;
 `;
 
 export const Content = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > div:first-child {
+        padding: 10px;
+      }
+
+      input {
+        width: 400px;
+        height: 40px;
+        padding: 10px;
+      }
+    }
+
+    .react-datepicker__input-container {
+      width: 400px;
+    }
+    .react-select__control {
+      margin-top: 15px;
+      width: 400px;
+      height: 40px;
+    }
+    .react-select-container {
+      width: 400px;
+    }
+  }
+`;
+
+export const TitleContainer = styled.div`
+  margin-top: 40px;
+  text-align: center;
+`;
+
+export const ButtonContainer = styled.div`
+  width: 200px;
+  padding: 0 10px;
+
+  button {
+    margin: 20px 0 0;
+    height: 44px;
+    width: 100%;
+    background: #38cb89;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.2s;
+    &:hover {
+      background: ${darken(0.08, '#38CB89')};
+    }
+  }
+`;
+
+export const SubmitButton = styled.div`
+  margin: 0 auto;
+
+  button {
+    margin: 20px 0 0;
+    height: 44px;
+    width: 810px;
+    background: #38cb89;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.2s;
+    &:hover {
+      background: ${darken(0.08, '#38CB89')};
+    }
+  }
 `;
