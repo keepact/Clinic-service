@@ -28,7 +28,7 @@ export function* findProfessionals({ payload }) {
   try {
     const { data: professional } = yield call(
       services.professionals,
-      data.id || data,
+      data.especialidade_id || data.id,
     );
 
     yield put({
@@ -63,8 +63,13 @@ export function* findSource() {
   }
 }
 
+export function getProfessionalSelected() {
+  history.push('Form');
+}
+
 export default all([
   takeLatest(Types.SPECIALTIES_REQUEST, findSpecialties),
   takeLatest(Types.PROFESSIONALS_REQUEST, findProfessionals),
+  takeLatest(Types.PROFESSIONAL_SELECTED, getProfessionalSelected),
   takeLatest(Types.SOURCE_REQUEST, findSource),
 ]);
