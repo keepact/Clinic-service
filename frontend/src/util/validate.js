@@ -1,8 +1,8 @@
 export const validateSpecialities = (values) => {
   const errors = {};
 
-  if (!values.specialities) {
-    errors.plan = 'Escolha uma especialidade';
+  if (!values.speciality) {
+    errors.speciality = 'Escolha uma especialidade';
   }
 
   return errors;
