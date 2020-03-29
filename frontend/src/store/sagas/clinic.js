@@ -1,5 +1,6 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
+import history from '~/services/history';
 
 import * as services from '~/services/clinic';
 
@@ -21,14 +22,15 @@ export function* findSpecialties() {
   }
 }
 
-export function* findProfessionals(id) {
+export function* findProfessionals({ payload }) {
   try {
-    const { data } = yield call(services.professionals, id);
+    const { data } = yield call(services.professionals, payload.id);
 
     yield put({
       type: Types.PROFESSIONALS_SUCCESS,
       payload: { data: data.content },
     });
+    history.push('professionals');
   } catch (err) {
     toast.error(err.response.data.error);
     yield put({

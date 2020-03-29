@@ -4,6 +4,5 @@ export const validateSpecialities = (values) => {
   if (!values.speciality) {
     errors.speciality = 'Escolha uma especialidade';
   }
-
   return errors;
 };

@@ -10,9 +10,7 @@ export const professionals = (id) =>
   api().request({
     url: 'professionals',
     method: 'GET',
-    data: {
-      especialidade_id: id,
-    },
+    params: { id },
   });
 
 export const source = () =>
