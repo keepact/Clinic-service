@@ -41,7 +41,7 @@ class ClinicRepository {
         url: 'professional/list',
         method: 'GET',
         data: {
-          especialidade_id: id,
+          especialidade_id: +id,
         },
       });
 
