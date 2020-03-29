@@ -9,7 +9,7 @@ import Select from '~/components/FormFields/Select';
 
 import logo from '~/assets/logo.png';
 
-import { validateSpecialities } from '~/util/validate';
+// import { validateSpecialities } from '~/util/validate';
 import { getSpecialties, getProfessionals } from '~/store/ducks/clinic';
 
 import { Container, Content } from './styles';
@@ -32,7 +32,9 @@ function Home({ handleSubmit, submitting }) {
       <Content>
         <form
           id="Form"
-          onSubmit={handleSubmit((id) => dispatch(getProfessionals(id)))}>
+          onSubmit={handleSubmit((values) =>
+            dispatch(getProfessionals(values.speciality.especialidade_id)),
+          )}>
           <Field
             name="speciality"
             htmlFor="speciality"
@@ -56,5 +58,5 @@ Home.propTypes = {
 
 export default reduxForm({
   form: 'SPECIALITY_FORM',
-  validate: validateSpecialities,
+  // validate: validateSpecialities,
 })(Home);
