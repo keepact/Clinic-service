@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, submit } from 'redux-form';
 
 import PropTypes from 'prop-types';
 
@@ -23,23 +23,29 @@ function Specialties({ handleSubmit }) {
 
   const { specialties, professionals } = useSelector((state) => state.clinic);
 
+  const transformData = (data) => {
+    return {
+      id: data.especialidade_id,
+      refresh: true,
+    };
+  };
+
   return (
     <>
       <Header />
       <Container>
         <Content>
           <h1>Resultados da busca</h1>
-          <form
-            id="Form"
-            onSubmit={handleSubmit((values) =>
-              dispatch(getProfessionals(values.speciality.especialidade_id)),
-            )}>
+          <form id="Form" onSubmit={handleSubmit}>
             <Field
               name="speciality"
               htmlFor="speciality"
               placeholder="Selecione uma especialidade"
               options={specialties && specialties}
               component={Select}
+              onChange={(values) =>
+                submit(dispatch(getProfessionals(transformData(values))))
+              }
             />
           </form>
         </Content>
@@ -81,5 +87,5 @@ Specialties.propTypes = {
 };
 
 export default reduxForm({
-  form: 'SPECIALITY_FORM',
+  form: 'PROFESSIONAL_FORM',
 })(Specialties);
