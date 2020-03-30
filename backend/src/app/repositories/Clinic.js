@@ -1,20 +1,8 @@
 import api from '../services/api';
 
 class ClinicRepository {
-  constructor() {
-    this.authorization = process.env.API_SECRET;
-    this.type = 'application/json';
-  }
-
   async getSpecialties() {
     try {
-      Object.assign(api.defaults, {
-        headers: {
-          'Content-Type': this.type,
-          'x-access-token': this.authorization,
-        },
-      });
-
       const response = await api.get('specialties/list');
 
       return response.data;
@@ -30,13 +18,6 @@ class ClinicRepository {
 
   async getProfessional(id) {
     try {
-      Object.assign(api.defaults, {
-        headers: {
-          'Content-Type': this.type,
-          'x-access-token': this.authorization,
-        },
-      });
-
       const response = await api.request({
         url: 'professional/list',
         method: 'GET',
@@ -58,13 +39,6 @@ class ClinicRepository {
 
   async getListSource() {
     try {
-      Object.assign(api.defaults, {
-        headers: {
-          'Content-Type': this.type,
-          'x-access-token': this.authorization,
-        },
-      });
-
       const response = await api.get('patient/list-sources');
 
       return response.data;
