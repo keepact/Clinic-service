@@ -28,7 +28,7 @@ Project developed for the Feegow challenge
     DB_PASS=postgres
     DB_NAME=feegow
     
-PS: You can change it in ``docker-compose.xml`` file located in the backend folder
+PS: You can change it in ``docker-compose.xml`` file located in the ``backend`` folder
 
 2 - Everything is set up, you can safely run the command:
 
@@ -38,7 +38,7 @@ PS: You can change it in ``docker-compose.xml`` file located in the backend fold
 
     yarn
 
-4 - Again, now in the ``frontend`` folder, rename the ``.env.example`` file to ``.env`` and fill the following environment variables:
+4 - Again, rename the ``.env.example`` file to ``.env`` and fill the following environment variables:
 
     REACT_APP_API=http://localhost:3333
     NODE_ENV=development
@@ -47,6 +47,6 @@ PS: You can change it in ``docker-compose.xml`` file located in the backend fold
 
     yarn start
         
-6 - Now with server and frontend running, you can access the application at: 
+6 - Now, with server and frontend running, you can access the application at: 
 
     http://localhost:3000
