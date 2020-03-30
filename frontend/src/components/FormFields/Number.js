@@ -1,32 +1,30 @@
 import React from 'react';
+import NumberFormat from 'react-number-format';
 import PropTypes from 'prop-types';
 
-import { MySelector } from './styles';
-
-function Selector({
+function NumberInput({
   input,
   label,
+  htmlFor,
+  className,
   disabled,
-  options,
+  prefix,
   placeholder,
+  formatSelected,
   meta: { touched, error, warning },
 }) {
   return (
     <>
-      {label && <label htmlFor={label}>{label}</label>}
-      <MySelector
+      {label && <label htmlFor={htmlFor}>{label}</label>}
+      <NumberFormat
         {...input}
-        options={options}
-        onBlur={() => input.onBlur(input.value)}
-        getOptionValue={(option) => option.especialidade_id}
-        getOptionLabel={(option) => option.nome || option.nome_origem}
-        className="react-select-container"
-        classNamePrefix="react-select"
+        className={className}
+        format={formatSelected}
+        mask="_"
         placeholder={placeholder}
-        isSearchable={false}
+        prefix={prefix}
         disabled={disabled}
       />
-
       {touched &&
         ((error && <span>{error}</span>) ||
           (warning && <span>{warning}</span>))}
@@ -34,18 +32,24 @@ function Selector({
   );
 }
 
-Selector.defaultProps = {
+NumberInput.defaultProps = {
   disabled: false,
+  className: '',
   label: '',
+  htmlFor: '',
+  prefix: '',
 };
 
-Selector.propTypes = {
+NumberInput.propTypes = {
   input: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  formatSelected: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   label: PropTypes.string,
+  htmlFor: PropTypes.string,
+  className: PropTypes.string,
   disabled: PropTypes.bool,
-  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  prefix: PropTypes.string,
   meta: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
-export default Selector;
+export default NumberInput;

@@ -29,15 +29,15 @@ export const Content = styled.div`
       }
     }
 
-    .react-datepicker__input-container {
-      width: 400px;
-    }
-    .react-select__control {
-      margin-top: 15px;
-      width: 400px;
-      height: 40px;
-    }
     .react-select-container {
+      padding-bottom: 0;
+    }
+
+    .react-select__value-container {
+      height: 39.5px;
+    }
+
+    .react-datepicker__input-container {
       width: 400px;
     }
   }

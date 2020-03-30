@@ -3456,6 +3456,11 @@ data-urls@^1.0.0, data-urls@^1.1.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
+date-fns@^2.0.0-beta.5:
+  version "2.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.0.0-beta.5.tgz#90885db3772802d55519cd12acd49de56aca1059"
+  integrity sha512-GS5yi964NDFNoja9yOdWFj9T97T67yLrUeJZgddHaVfc/6tHWtX7RXocuubmZkNzrZUZ9BqBOW7jTR5OoWjJ1w==
+
 date-fns@^2.0.1:
   version "2.11.1"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.11.1.tgz#197b8be1bbf5c5e6fe8bea817f0fe111820e7a12"
@@ -8758,6 +8763,13 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-number-format@^4.4.1:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/react-number-format/-/react-number-format-4.4.1.tgz#d5614dd25edfc21ed48b97356213440081437a94"
+  integrity sha512-ZGFMXZ0U7DcmQ3bSZY3FULOA1mfqreT9NIMYZNoa/ouiSgiTQiYA95Uj2KN8ge6BRr+ghA5vraozqWqsHZQw3Q==
+  dependencies:
+    prop-types "^15.7.2"
 
 react-onclickoutside@^6.9.0:
   version "6.9.0"
