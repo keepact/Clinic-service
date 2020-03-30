@@ -104,6 +104,7 @@ export function* saveSchedule({ payload }) {
       payload: { data: data.content },
     });
     toast.success('Seu pedido de agendamento foi enviado com sucesso');
+    history.push('professionals');
   } catch (err) {
     toast.error(error);
     yield put({

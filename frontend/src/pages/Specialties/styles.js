@@ -58,6 +58,7 @@ export const ButtonContainer = styled.div`
 
   > button {
     background-color: #6ac36f;
+    font-weight: bold;
     color: #fff;
     width: 100%;
   }
