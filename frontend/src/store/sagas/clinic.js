@@ -65,7 +65,7 @@ export function* findSource() {
 }
 
 export function* saveSchedule({ payload }) {
-  const { professional } = yield select((state) => state.clinic);
+  const { professional, user } = yield select((state) => state.clinic);
 
   const {
     name,
@@ -97,16 +97,19 @@ export function* saveSchedule({ payload }) {
   };
 
   try {
-    const { data } = yield call(services.schedule, dataFormatted);
-
+    yield call(services.schedule, dataFormatted);
     yield put({
       type: Types.SCHEDULES_SUCCESS,
-      payload: { data: data.content },
     });
-    toast.success('Seu pedido de agendamento foi enviado com sucesso');
+
+    toast.success(
+      `${user?.name}, seu pedido de agendamento foi enviado com sucesso`,
+    );
     history.push('professionals');
   } catch (err) {
-    toast.error(error);
+    toast.error(
+      `${user?.name}, ocorreu um erro ao processar seu agendamento. Verifique seus dados`,
+    );
     yield put({
       type: Types.REQUEST_FAILURE,
     });
