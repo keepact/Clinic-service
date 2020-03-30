@@ -8,7 +8,9 @@ import Header from '~/components/Header';
 import DatePicker from '~/components/FormFields/DatePicker';
 import Select from '~/components/FormFields/Select';
 import Input from '~/components/FormFields/Input';
+import NumberInput from '~/components/FormFields/Number';
 
+import { validate } from '~/util/validate';
 import { getSource } from '~/store/ducks/clinic';
 
 import {
@@ -64,27 +66,29 @@ function Form({ handleSubmit }) {
                 placeholderText="Nascimento"
                 component={DatePicker}
               />
+              <div>
+                <Field
+                  name="cpf"
+                  htmlFor="cpf"
+                  formatSelected="###.###.###-##"
+                  placeholder="CPF"
+                  component={NumberInput}
+                />
+              </div>
+            </div>
+            <div>
+              <Field
+                name="data_time"
+                htmlFor="data_time"
+                placeholderText="Data do Agendamento "
+                component={DatePicker}
+              />
               <Field
                 name="source"
                 htmlFor="source"
                 placeholder="Como conheceu?"
                 options={source && source}
                 component={Select}
-              />
-            </div>
-            <div>
-              <Field
-                name="time"
-                htmlFor="time"
-                type="time"
-                placeholder="Hora do agendamento"
-                component={Input}
-              />
-              <Field
-                name="cpf"
-                htmlFor="cpf"
-                placeholder="CPF"
-                component={Input}
               />
             </div>
           </form>
@@ -105,4 +109,5 @@ Form.propTypes = {
 
 export default reduxForm({
   form: 'SCHEDULE_FORM',
+  validate,
 })(Form);
