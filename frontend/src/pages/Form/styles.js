@@ -88,3 +88,22 @@ export const SubmitButton = styled.div`
     }
   }
 `;
+
+export const DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0 0 50px;
+
+  > div {
+    margin-left: 10px;
+
+    > p {
+      text-transform: capitalize;
+    }
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;

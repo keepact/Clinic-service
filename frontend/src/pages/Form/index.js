@@ -4,26 +4,31 @@ import { Field, reduxForm } from 'redux-form';
 
 import PropTypes from 'prop-types';
 
+import { GiHealthPotion } from 'react-icons/gi';
+
 import Header from '~/components/Header';
 import DatePicker from '~/components/FormFields/DatePicker';
 import Select from '~/components/FormFields/Select';
 import Input from '~/components/FormFields/Input';
 import NumberInput from '~/components/FormFields/Number';
 
+import history from '~/services/history';
 import { validate } from '~/util/validate';
 import { getSource } from '~/store/ducks/clinic';
 
 import {
   Container,
   Content,
+  Wrapper,
   TitleContainer,
+  DescriptionContainer,
   ButtonContainer,
   SubmitButton,
 } from './styles';
 
 function Form({ handleSubmit }) {
   const dispatch = useDispatch();
-  const { source } = useSelector((state) => state.clinic);
+  const { source, professional } = useSelector((state) => state.clinic);
 
   useEffect(() => {
     dispatch(getSource());
@@ -32,11 +37,28 @@ function Form({ handleSubmit }) {
   return (
     <>
       <Header />
-      <ButtonContainer>
-        <button type="button" onClick>
-          Voltar
-        </button>
-      </ButtonContainer>
+      <Wrapper>
+        <ButtonContainer>
+          <button type="button" onClick={() => history.push('/professionals')}>
+            Voltar
+          </button>
+        </ButtonContainer>
+        <DescriptionContainer>
+          <GiHealthPotion size={30} />
+          <div>
+            <p>
+              {professional.sexo === 'Masculino' ? 'Doutor' : 'Doutora'}{' '}
+              {professional.nome.toLowerCase()}
+            </p>
+            <div>
+              Especialidades:{' '}
+              {professional.especialidades.map((p) => (
+                <p>{p.nome_especialidade}</p>
+              ))}
+            </div>
+          </div>
+        </DescriptionContainer>
+      </Wrapper>
       <TitleContainer>
         <h1>Preencha abaixo os dados para o agendamento</h1>
       </TitleContainer>
