@@ -10,6 +10,8 @@ export const Types = {
   SPECIALTIES_SUCCESS: '@clinic/SPECIALTIES_SUCCESS',
   SOURCE_REQUEST: '@clinic/SOURCE_REQUEST',
   SOURCE_SUCCESS: '@clinic/SOURCE_SUCCESS',
+  SCHEDULES_REQUEST: '@clinic/SCHEDULES_REQUEST',
+  SCHEDULES_SUCCESS: '@clinic/SCHEDULES_SUCCESS',
   REQUEST_FAILURE: '@clinic/REQUEST_FAILURE',
 };
 
@@ -17,6 +19,7 @@ export const Types = {
 
 const INITIAL_STATE = {
   loading: false,
+  user: {},
   professionals: [],
   professional: {},
   specialties: [],
@@ -54,6 +57,14 @@ export default function clinic(state = INITIAL_STATE, action) {
         draft.source = action.payload.data;
         break;
       }
+      case Types.SCHEDULES_REQUEST: {
+        draft.user = action.payload.data;
+        break;
+      }
+      case Types.SCHEDULES_SUCCESS: {
+        draft.user = action.payload.data;
+        break;
+      }
       case Types.PROFESSIONAL_SELECTED: {
         draft.professional = action.payload.data;
         break;
@@ -72,6 +83,13 @@ export default function clinic(state = INITIAL_STATE, action) {
 export function getSpecialties() {
   return {
     type: Types.SPECIALTIES_REQUEST,
+  };
+}
+
+export function createSchedule(data) {
+  return {
+    type: Types.SCHEDULES_REQUEST,
+    payload: { data },
   };
 }
 
