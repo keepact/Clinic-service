@@ -50,15 +50,21 @@ export default function clinic(state = INITIAL_STATE, action) {
         break;
       }
       case Types.SOURCE_REQUEST: {
-        draft.loading = false;
+        draft.loading = true;
         break;
       }
       case Types.SOURCE_SUCCESS: {
         draft.source = action.payload.data;
+        draft.loading = false;
         break;
       }
       case Types.SCHEDULES_REQUEST: {
+        draft.loading = true;
         draft.user = action.payload.data;
+        break;
+      }
+      case Types.SCHEDULES_SUCCESS: {
+        draft.loading = false;
         break;
       }
       case Types.PROFESSIONAL_SELECTED: {

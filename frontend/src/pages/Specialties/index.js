@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 
 import Header from '~/components/Header';
 import Select from '~/components/FormFields/Select';
+import Animation from '~/components/LottieAnimation';
+import loadingAnimation from '~/assets/animations/loading.json';
 
 import { getProfessionals, saveProfessional } from '~/store/ducks/clinic';
 
@@ -20,7 +22,7 @@ import {
 
 function Specialties({ handleSubmit }) {
   const dispatch = useDispatch();
-  const { specialties, speciality, professionals } = useSelector(
+  const { specialties, speciality, professionals, loading } = useSelector(
     (state) => state.clinic,
   );
   const transformData = (data) => {
@@ -35,53 +37,59 @@ function Specialties({ handleSubmit }) {
     <>
       <Header />
       <Container>
-        <Content>
-          <h1>Resultados da busca por {speciality.nome}</h1>
-          <form id="Form" onSubmit={handleSubmit}>
-            <Field
-              name="speciality"
-              htmlFor="speciality"
-              placeholder="Selecione uma especialidade"
-              options={specialties && specialties}
-              component={Select}
-              onChange={(values) =>
-                submit(dispatch(getProfessionals(transformData(values))))
-              }
-            />
-          </form>
-        </Content>
-
-        <DoctorsContainer>
-          {professionals?.map((professional) => (
-            <Doctor>
-              <Wrapper>
-                <img
-                  src={
-                    professional.foto
-                      ? professional.foto
-                      : 'https://api.adorable.io/avatars/50/abott@adorable.png'
+        {loading ? (
+          <Animation animation={loadingAnimation} />
+        ) : (
+          <>
+            <Content>
+              <h1>Resultados da busca por {speciality.nome}</h1>
+              <form id="Form" onSubmit={handleSubmit}>
+                <Field
+                  name="speciality"
+                  htmlFor="speciality"
+                  placeholder="Selecione uma especialidade"
+                  options={specialties && specialties}
+                  component={Select}
+                  onChange={(values) =>
+                    submit(dispatch(getProfessionals(transformData(values))))
                   }
-                  alt="Clinic"
                 />
-                <div>
-                  <h4>{professional.nome.toLowerCase()}</h4>
-                  <span>
-                    {professional.documento_conselho
-                      ? professional.documento_conselho
-                      : 'Não possui CRM cadastrado'}
-                  </span>
-                </div>
-              </Wrapper>
-              <ButtonContainer>
-                <button
-                  type="button"
-                  onClick={() => dispatch(saveProfessional(professional))}>
-                  Agendar
-                </button>
-              </ButtonContainer>
-            </Doctor>
-          ))}
-        </DoctorsContainer>
+              </form>
+            </Content>
+
+            <DoctorsContainer>
+              {professionals?.map((professional) => (
+                <Doctor key={professional.profissional_id}>
+                  <Wrapper>
+                    <img
+                      src={
+                        professional.foto
+                          ? professional.foto
+                          : 'https://api.adorable.io/avatars/50/abott@adorable.png'
+                      }
+                      alt="Clinic"
+                    />
+                    <div>
+                      <h4>{professional.nome.toLowerCase()}</h4>
+                      <span>
+                        {professional.documento_conselho
+                          ? professional.documento_conselho
+                          : 'Não possui CRM cadastrado'}
+                      </span>
+                    </div>
+                  </Wrapper>
+                  <ButtonContainer>
+                    <button
+                      type="button"
+                      onClick={() => dispatch(saveProfessional(professional))}>
+                      Agendar
+                    </button>
+                  </ButtonContainer>
+                </Doctor>
+              ))}
+            </DoctorsContainer>
+          </>
+        )}
       </Container>
     </>
   );

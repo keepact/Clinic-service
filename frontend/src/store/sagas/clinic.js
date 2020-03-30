@@ -1,4 +1,6 @@
 import { takeLatest, all, call, put, select } from 'redux-saga/effects';
+import { startSubmit, stopSubmit } from 'redux-form';
+
 import { toast } from 'react-toastify';
 import history from '~/services/history';
 
@@ -27,6 +29,13 @@ export function* findProfessionals({ payload }) {
   const { data } = payload;
 
   try {
+    if (!data.refresh) {
+      history.push('professionals');
+      yield put(startSubmit('SPECIALITY_FORM'));
+    } else {
+      yield put(startSubmit('PROFESSIONAL_FORM'));
+    }
+
     const { data: professional } = yield call(
       services.professionals,
       data.especialidade_id || data.id,
@@ -38,7 +47,9 @@ export function* findProfessionals({ payload }) {
     });
 
     if (!data.refresh) {
-      history.push('professionals');
+      yield put(stopSubmit('SPECIALITY_FORM'));
+    } else {
+      yield put(stopSubmit('PROFESSIONAL_FORM'));
     }
   } catch (err) {
     toast.error(err.response.data.error);
@@ -97,11 +108,14 @@ export function* saveSchedule({ payload }) {
   };
 
   try {
+    yield put(startSubmit('SCHEDULE_FORM'));
+
     yield call(services.schedule, dataFormatted);
     yield put({
       type: Types.SCHEDULES_SUCCESS,
     });
 
+    yield put(stopSubmit('SCHEDULE_FORM'));
     toast.success(
       `${user?.name}, seu pedido de agendamento foi enviado com sucesso`,
     );
