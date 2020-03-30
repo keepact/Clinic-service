@@ -82,12 +82,14 @@ function Form({ handleSubmit }) {
               />
             </div>
             <div>
-              <Field
-                name="birthdate"
-                htmlFor="birthdate"
-                placeholderText="Nascimento"
-                component={DatePicker}
-              />
+              <div>
+                <Field
+                  name="birthdate"
+                  htmlFor="birthdate"
+                  placeholderText="Nascimento"
+                  component={DatePicker}
+                />
+              </div>
               <div>
                 <Field
                   name="cpf"
@@ -99,19 +101,23 @@ function Form({ handleSubmit }) {
               </div>
             </div>
             <div>
-              <Field
-                name="data_time"
-                htmlFor="data_time"
-                placeholderText="Data do Agendamento "
-                component={DatePicker}
-              />
-              <Field
-                name="source"
-                htmlFor="source"
-                placeholder="Como conheceu?"
-                options={source && source}
-                component={Select}
-              />
+              <div>
+                <Field
+                  name="data_time"
+                  htmlFor="data_time"
+                  placeholderText="Data do Agendamento"
+                  component={DatePicker}
+                />
+              </div>
+              <div>
+                <Field
+                  name="source"
+                  htmlFor="source"
+                  placeholder="Como conheceu?"
+                  options={source && source}
+                  component={Select}
+                />
+              </div>
             </div>
           </form>
         </Content>
