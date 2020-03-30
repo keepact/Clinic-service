@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDatePicker from 'react-datepicker';
 
@@ -9,17 +9,9 @@ function DatePicker({
   label,
   disabled,
   placeholderText,
+  showTimeSelect,
   meta: { touched, error, warning },
 }) {
-  useEffect(() => {
-    const datePickers = document.getElementsByClassName(
-      'react-datepicker__input-container',
-    );
-    Array.from(datePickers).forEach((el) =>
-      el.childNodes[0].setAttribute('readOnly', true),
-    );
-  }, []);
-
   return (
     <>
       {label && <label htmlFor={label}>{label}</label>}
@@ -27,9 +19,11 @@ function DatePicker({
       <ReactDatePicker
         {...input}
         dateFormat="dd/MM/yyyy"
+        onBlur={() => input.onBlur(input.value)}
         placeholderText={placeholderText}
         disabled={disabled}
         selected={input.value ? input.value : null}
+        showTimeSelect={showTimeSelect}
       />
       {touched &&
         ((error && <span>{error}</span>) ||
@@ -41,6 +35,7 @@ function DatePicker({
 DatePicker.defaultProps = {
   label: '',
   disabled: false,
+  showTimeSelect: false,
 };
 
 DatePicker.propTypes = {
@@ -48,6 +43,7 @@ DatePicker.propTypes = {
   placeholderText: PropTypes.string.isRequired,
   label: PropTypes.string,
   disabled: PropTypes.bool,
+  showTimeSelect: PropTypes.bool,
   meta: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 

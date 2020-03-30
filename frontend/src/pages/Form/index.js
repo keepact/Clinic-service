@@ -110,6 +110,7 @@ function Form({ handleSubmit, submitting }) {
                   name="date_time"
                   htmlFor="date_time"
                   placeholderText="Data do Agendamento"
+                  showTimeSelect
                   component={DatePicker}
                 />
               </div>
