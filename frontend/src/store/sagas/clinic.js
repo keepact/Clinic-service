@@ -27,6 +27,10 @@ export function* findProfessionals({ payload }) {
   const { data } = payload;
 
   try {
+    if (!data.refresh) {
+      history.push('professionals');
+    }
+
     const { data: professional } = yield call(
       services.professionals,
       data.especialidade_id || data.id,
@@ -36,10 +40,6 @@ export function* findProfessionals({ payload }) {
       type: Types.PROFESSIONALS_SUCCESS,
       payload: { data: professional.content },
     });
-
-    if (!data.refresh) {
-      history.push('professionals');
-    }
   } catch (err) {
     toast.error(err.response.data.error);
     yield put({

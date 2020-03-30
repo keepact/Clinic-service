@@ -7,7 +7,7 @@ import { Field, reduxForm } from 'redux-form';
 import { GoSearch } from 'react-icons/go';
 import Select from '~/components/FormFields/Select';
 
-import logo from '~/assets/logo.png';
+import logo from '~/assets/images/logo.png';
 
 import { validateSpecialities } from '~/util/validate';
 import { getSpecialties, getProfessionals } from '~/store/ducks/clinic';
