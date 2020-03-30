@@ -61,10 +61,6 @@ export default function clinic(state = INITIAL_STATE, action) {
         draft.user = action.payload.data;
         break;
       }
-      case Types.SCHEDULES_SUCCESS: {
-        draft.user = action.payload.data;
-        break;
-      }
       case Types.PROFESSIONAL_SELECTED: {
         draft.professional = action.payload.data;
         break;
