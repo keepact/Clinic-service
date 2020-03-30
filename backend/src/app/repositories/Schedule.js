@@ -6,7 +6,7 @@ class ScheduleRepository {
       return await Schedule.create(reqBody);
     } catch (err) {
       console.error(
-        `Não foi possível criar o cadastro do aluno: ${JSON.stringify(err)}`
+        `Não foi possível realizar o agendamento: ${JSON.stringify(err)}`
       );
     }
     return undefined;
