@@ -7,8 +7,8 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      specialty_id: {
-        type: Sequelize.INTEGER,
+      specialties: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER),
         allowNull: false,
       },
       professional_id: {
@@ -20,6 +20,10 @@ module.exports = {
         allowNull: false,
       },
       name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      email: {
         type: Sequelize.STRING,
         allowNull: false,
       },

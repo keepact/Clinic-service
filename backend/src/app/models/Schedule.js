@@ -5,7 +5,8 @@ class Schedule extends Model {
     super.init(
       {
         name: Sequelize.STRING,
-        specialty_id: Sequelize.INTEGER,
+        email: Sequelize.STRING,
+        specialties: Sequelize.ARRAY(Sequelize.INTEGER),
         professional_id: Sequelize.INTEGER,
         source_id: Sequelize.INTEGER,
         cpf: Sequelize.STRING,
