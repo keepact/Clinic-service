@@ -58,12 +58,12 @@ function Form({ handleSubmit, submitting, pristine }) {
               <GiHealthPotion size={30} />
               <div>
                 <p>
-                  {professional.sexo === 'Masculino' ? 'Doutor' : 'Doutora'}{' '}
-                  {professional.nome.toLowerCase()}
+                  {professional?.sexo === 'Masculino' ? 'Doutor' : 'Doutora'}{' '}
+                  {professional?.nome?.toLowerCase()}
                 </p>
                 <div>
                   Especialidades:{' '}
-                  {professional.especialidades.map((p) => (
+                  {professional?.especialidades?.map((p) => (
                     <p key={p.especialidade_id}>{p.nome_especialidade}</p>
                   ))}
                 </div>
