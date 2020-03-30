@@ -17,7 +17,7 @@ Project developed for the Feegow challenge
 
     git clone https://github.com/keepact/Clinic-service
 
-1 - Now you have to rename the ``.env.example`` file to ``.env`` and fill the environment variables:
+1 - Now, from the backend folder, you have to rename the ``.env.example`` file to ``.env`` and fill the environment variables:
 
     CLINIC_API=YOUR-API
     API_SECRET=YOUR-TOKEN
