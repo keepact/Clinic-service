@@ -13,6 +13,13 @@ export const Content = styled.div`
     align-items: center;
     justify-content: center;
 
+    span {
+      display: inline-block;
+      color: #ee4d64;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
     > div {
       display: flex;
       align-items: center;
