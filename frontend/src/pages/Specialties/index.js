@@ -59,7 +59,7 @@ function Specialties({ handleSubmit }) {
 
             <DoctorsContainer>
               {professionals?.map((professional) => (
-                <Doctor>
+                <Doctor key={professional.profissional_id}>
                   <Wrapper>
                     <img
                       src={

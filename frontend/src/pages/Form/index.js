@@ -63,7 +63,7 @@ function Form({ handleSubmit, submitting }) {
                 <div>
                   Especialidades:{' '}
                   {professional.especialidades.map((p) => (
-                    <p>{p.nome_especialidade}</p>
+                    <p key={p.especialidade_id}>{p.nome_especialidade}</p>
                   ))}
                 </div>
               </div>
