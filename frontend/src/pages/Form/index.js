@@ -11,6 +11,8 @@ import DatePicker from '~/components/FormFields/DatePicker';
 import Select from '~/components/FormFields/Select';
 import Input from '~/components/FormFields/Input';
 import NumberInput from '~/components/FormFields/Number';
+
+import Button from '~/components/Button';
 import Animation from '~/components/Animation';
 import loadingAnimation from '~/assets/animations/loading.json';
 
@@ -24,11 +26,9 @@ import {
   Wrapper,
   TitleContainer,
   DescriptionContainer,
-  ButtonContainer,
-  SubmitButton,
 } from './styles';
 
-function Form({ handleSubmit, submitting }) {
+function Form({ handleSubmit, submitting, pristine }) {
   const dispatch = useDispatch();
   const { source, professional, loading } = useSelector(
     (state) => state.clinic,
@@ -46,13 +46,14 @@ function Form({ handleSubmit, submitting }) {
       ) : (
         <>
           <Wrapper>
-            <ButtonContainer>
-              <button
-                type="button"
-                onClick={() => history.push('/professionals')}>
-                Voltar
-              </button>
-            </ButtonContainer>
+            <Button
+              width="200px"
+              padding="0 10px"
+              form="Form"
+              onClick={() => history.push('/professionals')}>
+              Voltar
+            </Button>
+
             <DescriptionContainer>
               <GiHealthPotion size={30} />
               <div>
@@ -136,11 +137,12 @@ function Form({ handleSubmit, submitting }) {
                 </div>
               </form>
             </Content>
-            <SubmitButton>
-              <button form="Form" disabled={submitting} type="submit">
-                Enviar
-              </button>
-            </SubmitButton>
+            <Button
+              form="Form"
+              disabled={pristine || submitting}
+              typeButton="submit">
+              Enviar
+            </Button>
           </Container>
         </>
       )}
@@ -151,6 +153,7 @@ function Form({ handleSubmit, submitting }) {
 Form.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   submitting: PropTypes.bool.isRequired,
+  pristine: PropTypes.bool.isRequired,
 };
 
 export default reduxForm({

@@ -8,6 +8,7 @@ import Header from '~/components/Header';
 import Select from '~/components/FormFields/Select';
 import Animation from '~/components/Animation';
 import loadingAnimation from '~/assets/animations/loading.json';
+import Button from '~/components/Button';
 
 import { getProfessionals, saveProfessional } from '~/store/ducks/clinic';
 
@@ -15,7 +16,6 @@ import {
   Container,
   Content,
   DoctorsContainer,
-  ButtonContainer,
   Doctor,
   Wrapper,
 } from './styles';
@@ -78,13 +78,10 @@ function Specialties({ handleSubmit }) {
                       </span>
                     </div>
                   </Wrapper>
-                  <ButtonContainer>
-                    <button
-                      type="button"
-                      onClick={() => dispatch(saveProfessional(professional))}>
-                      Agendar
-                    </button>
-                  </ButtonContainer>
+                  <Button
+                    onClick={() => dispatch(saveProfessional(professional))}>
+                    Agendar
+                  </Button>
                 </Doctor>
               ))}
             </DoctorsContainer>

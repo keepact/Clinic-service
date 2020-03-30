@@ -50,16 +50,3 @@ export const Wrapper = styled.div`
     }
   }
 `;
-
-export const ButtonContainer = styled.div`
-  height: 30px;
-  display: flex;
-  justify-content: center;
-
-  > button {
-    background-color: #6ac36f;
-    font-weight: bold;
-    color: #fff;
-    width: 100%;
-  }
-`;
