@@ -6,6 +6,7 @@ import { Field, reduxForm } from 'redux-form';
 
 import { GoSearch } from 'react-icons/go';
 import Select from '~/components/FormFields/Select';
+import Button from '~/components/Button';
 
 import logo from '~/assets/images/logo.png';
 
@@ -14,7 +15,7 @@ import { getSpecialties, getProfessionals } from '~/store/ducks/clinic';
 
 import { Container, Content } from './styles';
 
-function Home({ handleSubmit, submitting }) {
+function Home({ handleSubmit, submitting, pristine }) {
   const dispatch = useDispatch();
   const { specialties: data } = useSelector((state) => state.clinic);
 
@@ -42,9 +43,13 @@ function Home({ handleSubmit, submitting }) {
             component={Select}
           />
         </form>
-        <button form="Form" disabled={submitting} type="submit">
+        <Button
+          form="Form"
+          buttonMargin="0"
+          disabled={pristine || submitting}
+          typeButton="submit">
           <GoSearch size={20} />
-        </button>
+        </Button>
       </Content>
     </Container>
   );
@@ -52,6 +57,7 @@ function Home({ handleSubmit, submitting }) {
 
 Home.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
 };
 
