@@ -3,7 +3,7 @@ import { Router } from 'express';
 import ScheduleController from './app/controllers/Schedule';
 import ClinicController from './app/controllers/Clinic';
 
-import { createSchedule } from './app/middlewares/Schedule';
+import createSchedule from './app/middlewares/Schedule';
 
 const routes = new Router();
 

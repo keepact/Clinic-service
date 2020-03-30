@@ -1,12 +1,13 @@
 import * as Yup from 'yup';
 import Schedule from '../models/Schedule';
 
-export const createSchedule = async (req, res, next) => {
+const createSchedule = async (req, res, next) => {
   try {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
-      specialty_id: Yup.number()
-        .required(),
+      email: Yup.string().required(),
+      date_time: Yup.date().required(),
+      specialties: Yup.array().required(),
       professional_id: Yup.number().required(),
       source_id: Yup.number().required(),
       cpf: Yup.string().required(),
@@ -30,3 +31,5 @@ export const createSchedule = async (req, res, next) => {
       .json({ err: 'A validação falhou', messsages: err.inner });
   }
 };
+
+export default createSchedule;
