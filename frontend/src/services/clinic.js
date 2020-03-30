@@ -19,7 +19,7 @@ export const source = () =>
     method: 'GET',
   });
 
-export const scheduling = (data) =>
+export const schedule = (data) =>
   api().request({
     url: 'schedules',
     method: 'POST',

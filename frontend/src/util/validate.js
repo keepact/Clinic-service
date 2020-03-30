@@ -1,4 +1,6 @@
+/* eslint-disable eqeqeq */
 import { addMonths } from 'date-fns';
+import { formatCpf } from './format';
 
 export const validateSpecialities = (values) => {
   const errors = {};
@@ -17,22 +19,20 @@ const validateCpf = (data) => {
 
   addition = 0;
 
-  const cpf = data.replace('.', '').replace('.', '').replace('-', '');
+  const cpf = formatCpf(data);
 
-  for (i = 1; i <= 9; i++)
-    addition += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+  for (i = 1; i <= 9; i += 1) addition += +cpf.substring(i - 1, i) * (11 - i);
   rest = (addition * 10) % 11;
 
   if (rest == 10 || rest == 11) rest = 0;
-  if (rest != parseInt(cpf.substring(9, 10))) return false;
+  if (rest != +cpf.substring(9, 10)) return false;
 
   addition = 0;
-  for (i = 1; i <= 10; i++)
-    addition += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+  for (i = 1; i <= 10; i += 1) addition += +cpf.substring(i - 1, i) * (12 - i);
   rest = (addition * 10) % 11;
 
   if (rest == 10 || rest == 11) rest = 0;
-  if (rest != parseInt(cpf.substring(10, 11))) return false;
+  if (rest != +cpf.substring(10, 11)) return false;
 
   return true;
 };
@@ -54,12 +54,12 @@ export const validate = (values) => {
     errors.email = 'O formato precisa ser "example@email.com"';
   }
 
-  if (!values.data_time) {
-    errors.data_time = 'Esse campo é obrigatório';
-  } else if (new Date(values.data_time) < new Date()) {
-    errors.data_time = 'Datas passadas não são permitidas';
-  } else if (new Date(values.data_time) > addMonths(new Date(), 3)) {
-    errors.data_time = 'Agendamentos podem ocorrer em até 3 meses';
+  if (!values.date_time) {
+    errors.date_time = 'Esse campo é obrigatório';
+  } else if (new Date(values.date_time) < new Date()) {
+    errors.date_time = 'Datas passadas não são permitidas';
+  } else if (new Date(values.date_time) > addMonths(new Date(), 3)) {
+    errors.date_time = 'Agendamentos podem ocorrer em até 3 meses';
   }
 
   if (!values.cpf) {

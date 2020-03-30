@@ -14,7 +14,7 @@ import NumberInput from '~/components/FormFields/Number';
 
 import history from '~/services/history';
 import { validate } from '~/util/validate';
-import { getSource } from '~/store/ducks/clinic';
+import { getSource, createSchedule } from '~/store/ducks/clinic';
 
 import {
   Container,
@@ -26,7 +26,7 @@ import {
   SubmitButton,
 } from './styles';
 
-function Form({ handleSubmit }) {
+function Form({ handleSubmit, submitting }) {
   const dispatch = useDispatch();
   const { source, professional } = useSelector((state) => state.clinic);
 
@@ -65,7 +65,11 @@ function Form({ handleSubmit }) {
 
       <Container>
         <Content>
-          <form id="Form" onSubmit={handleSubmit}>
+          <form
+            id="Form"
+            onSubmit={handleSubmit((values) =>
+              dispatch(createSchedule(values)),
+            )}>
             <div>
               <Field
                 name="name"
@@ -103,8 +107,8 @@ function Form({ handleSubmit }) {
             <div>
               <div>
                 <Field
-                  name="data_time"
-                  htmlFor="data_time"
+                  name="date_time"
+                  htmlFor="date_time"
                   placeholderText="Data do Agendamento"
                   component={DatePicker}
                 />
@@ -122,7 +126,7 @@ function Form({ handleSubmit }) {
           </form>
         </Content>
         <SubmitButton>
-          <button type="button" onClick>
+          <button form="Form" disabled={submitting} type="submit">
             Enviar
           </button>
         </SubmitButton>
@@ -133,6 +137,7 @@ function Form({ handleSubmit }) {
 
 Form.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  submitting: PropTypes.bool.isRequired,
 };
 
 export default reduxForm({
