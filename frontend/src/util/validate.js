@@ -1,5 +1,5 @@
 /* eslint-disable eqeqeq */
-import { addMonths } from 'date-fns';
+import { addMonths, subYears } from 'date-fns';
 import { formatCpf } from './format';
 
 export const validateSpecialities = (values) => {
@@ -62,14 +62,16 @@ export const validate = (values) => {
     errors.date_time = 'Agendamentos podem ocorrer em até 3 meses';
   }
 
+  if (!values.birthdate) {
+    errors.birthdate = 'Esse campo é obrigatório';
+  } else if (new Date(values.birthdate) > subYears(new Date(), 18)) {
+    errors.birthdate = 'Menores de idade não podem fazer agendamentos';
+  }
+
   if (!values.cpf) {
     errors.cpf = 'Esse campo é obrigatório';
   } else if (!validateCpf(values.cpf)) {
     errors.cpf = 'Formate de cpf inválido';
-  }
-
-  if (!values.birthdate) {
-    errors.birthdate = 'Esse campo é obrigatório';
   }
 
   if (!values.source) {
