@@ -17,7 +17,7 @@ Project developed for the Feegow challenge
 
     git clone https://github.com/keepact/Clinic-service
 
-1 - Now, from the backend folder, you have to rename the ``.env.example`` file to ``.env`` and fill the environment variables:
+1 - From the ``backend`` folder, you have to rename the ``.env.example`` file to ``.env`` and fill the environment variables:
 
     CLINIC_API=YOUR-API
     API_SECRET=YOUR-TOKEN
@@ -30,7 +30,7 @@ Project developed for the Feegow challenge
     
 PS: You can change it in ``docker-compose.xml`` file located in the backend folder
 
-2 - Now that everything is set up, you can run the command:
+2 - Everything is set up, you can safely run the command:
 
     docker-compose up
 
@@ -38,7 +38,7 @@ PS: You can change it in ``docker-compose.xml`` file located in the backend fold
 
     yarn
 
-4 - Again, now in the frontend folder, rename the ``.env.example`` file to ``.env`` and fill the following environment variables:
+4 - Again, now in the ``frontend`` folder, rename the ``.env.example`` file to ``.env`` and fill the following environment variables:
 
     REACT_APP_API=http://localhost:3333
     NODE_ENV=development
