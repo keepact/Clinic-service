@@ -11,7 +11,7 @@ import DatePicker from '~/components/FormFields/DatePicker';
 import Select from '~/components/FormFields/Select';
 import Input from '~/components/FormFields/Input';
 import NumberInput from '~/components/FormFields/Number';
-import Animation from '~/components/LottieAnimation';
+import Animation from '~/components/Animation';
 import loadingAnimation from '~/assets/animations/loading.json';
 
 import history from '~/services/history';
