@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import Header from '~/components/Header';
 import Select from '~/components/FormFields/Select';
-import Animation from '~/components/LottieAnimation';
+import Animation from '~/components/Animation';
 import loadingAnimation from '~/assets/animations/loading.json';
 
 import { getProfessionals, saveProfessional } from '~/store/ducks/clinic';
