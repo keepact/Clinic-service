@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 
 import { GiHealthPotion } from 'react-icons/gi';
 
-import Header from '~/components/Header';
 import DatePicker from '~/components/FormFields/DatePicker';
 import Select from '~/components/FormFields/Select';
 import Input from '~/components/FormFields/Input';
@@ -40,7 +39,6 @@ function Form({ handleSubmit, submitting, pristine }) {
 
   return (
     <>
-      <Header />
       {loading ? (
         <Animation animation={loadingAnimation} />
       ) : (

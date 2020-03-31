@@ -1,14 +1,17 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
-
 import { GoSearch } from 'react-icons/go';
+
+import { Field, reduxForm } from 'redux-form';
+import { ThemeContext } from 'styled-components';
+import Context from '~/context';
+
 import Select from '~/components/FormFields/Select';
 import Button from '~/components/Button';
-
 import logo from '~/assets/images/logo.png';
+import light from '~/styles/themes/light';
 
 import { validateSpecialities } from '~/util/validate';
 import { getSpecialties, getProfessionals } from '~/store/ducks/clinic';
@@ -19,10 +22,17 @@ function Home({ handleSubmit, submitting, pristine }) {
   const dispatch = useDispatch();
   const { specialties: data } = useSelector((state) => state.clinic);
 
+  const [setTheme] = useContext(Context);
+  const { title } = useContext(ThemeContext);
+
   const specialties = useMemo(() => data, [data]);
 
   useEffect(() => {
     dispatch(getSpecialties());
+
+    if (title === 'dark') {
+      setTheme(light);
+    }
   }, [dispatch]);
 
   return (

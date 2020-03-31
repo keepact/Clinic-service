@@ -25,6 +25,7 @@ export default createGlobalStyle`
 
   body, input, button {
     font: 14px 'Roboto', sans-serif;
+    background-color: ${(props) => props.theme.colors.background};
   }
 
   a {

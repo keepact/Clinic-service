@@ -13,7 +13,7 @@ export const Container = styled.div`
     margin: ${(props) => props.buttonMargin};
     height: 44px;
     width: 100%;
-    background: #38cb89;
+    background: ${(props) => props.theme.colors.secundary};
     color: #fff;
     border: 0;
     border-radius: 4px;
@@ -21,7 +21,7 @@ export const Container = styled.div`
     font-weight: bold;
     transition: background 0.2s;
     &:hover {
-      background: ${darken(0.08, '#38CB89')};
+      background: ${(props) => darken(0.08, props.theme.colors.secundary)};
     }
   }
 `;
