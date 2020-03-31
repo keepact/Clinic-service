@@ -25,7 +25,8 @@ export const MySelector = styled(Select)`
     }
   }
 
-  .react-select__placeholder {
+  .react-select__placeholder,
+  .react-select__single-value {
     color: ${(props) => props.theme.colors.text};
   }
   .react-select__value-container {
