@@ -34,7 +34,7 @@ Project developed for the Feegow challenge
     DB_PASS=postgres
     DB_NAME=feegow
     
-PS: You can change it in ``docker-compose.xml`` file located in the ``backend`` folder
+PS: You can change it in ``docker-compose.yml`` file located in the ``backend`` folder
 
 2 - Everything is set up, you can safely run the command:
 
