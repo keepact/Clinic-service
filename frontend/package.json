@@ -18,6 +18,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-select": "^3.1.0",
+    "react-switch": "^5.0.1",
     "react-toastify": "^5.5.0",
     "reactotron-react-js": "^3.3.7",
     "reactotron-redux": "^3.1.3",

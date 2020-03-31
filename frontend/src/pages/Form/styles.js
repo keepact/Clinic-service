@@ -14,7 +14,7 @@ export const Content = styled.div`
 
     span {
       display: inline-block;
-      color: #ee4d64;
+      color: ${(props) => props.theme.colors.error};
       font-weight: bold;
       margin-top: 10px;
     }
@@ -29,6 +29,7 @@ export const Content = styled.div`
       }
 
       input {
+        color: ${(props) => props.theme.colors.text};
         width: 400px;
         height: 40px;
         padding: 10px;
@@ -50,6 +51,7 @@ export const Content = styled.div`
 `;
 
 export const TitleContainer = styled.div`
+  color: ${(props) => props.theme.colors.text};
   margin-top: 40px;
   text-align: center;
 `;
@@ -58,6 +60,7 @@ export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin: 20px 0 0 50px;
+  color: ${(props) => props.theme.colors.text};
 
   > div {
     margin-left: 10px;

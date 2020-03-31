@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  background: #03b4d0;
-  border: solid 1px #ddd;
+  background: ${(props) => props.theme.colors.primary};
+  border: solid 1px ${(props) => props.theme.colors.secundary};
   height: 150px;
   padding: 0 30px;
 `;

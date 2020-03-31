@@ -4,7 +4,6 @@ import { Field, reduxForm, submit } from 'redux-form';
 
 import PropTypes from 'prop-types';
 
-import Header from '~/components/Header';
 import Select from '~/components/FormFields/Select';
 import Animation from '~/components/Animation';
 import loadingAnimation from '~/assets/animations/loading.json';
@@ -35,7 +34,6 @@ function Specialties({ handleSubmit }) {
 
   return (
     <>
-      <Header />
       <Container>
         {loading ? (
           <Animation animation={loadingAnimation} />
