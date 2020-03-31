@@ -10,6 +10,12 @@ Project developed for the Feegow challenge
 - Docker
 - Insomonia
 
+## Application Preview
+
+<p align="center">
+  <img alt="GitHub language count" src="https://github.com/keepact/Clinic-service/blob/master/app-preview.png">
+ </p>
+
 ## Configuration
 
 
