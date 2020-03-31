@@ -17,7 +17,11 @@ const createSchedule = async (req, res, next) => {
     await schema.validate(req.body, { abortEarly: false });
 
     const scheduleExists = await Schedule.findOne({
-      where: { name: req.body.name, birthdate: req.body.birthdate },
+      where: {
+        name: req.body.name,
+        birthdate: req.body.birthdate,
+        date_time: req.body.date_time,
+      },
     });
 
     if (scheduleExists) {
