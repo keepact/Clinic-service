@@ -19,7 +19,7 @@ const createSchedule = async (req, res, next) => {
     const scheduleExists = await Schedule.findOne({
       where: {
         name: req.body.name,
-        birthdate: req.body.birthdate,
+        professional_id: req.body.professional_id,
         date_time: req.body.date_time,
       },
     });
