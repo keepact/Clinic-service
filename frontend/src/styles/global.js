@@ -21,11 +21,12 @@ export default createGlobalStyle`
 
   body {
     -webkit-font-smoothing: antialiased;
+    background-color: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.text};
   }
 
   body, input, button {
     font: 14px 'Roboto', sans-serif;
-    background-color: ${(props) => props.theme.colors.background};
   }
 
   a {

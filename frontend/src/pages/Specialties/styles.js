@@ -8,10 +8,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
-  h1 {
-    color: ${(props) => props.theme.colors.text};
-  }
 `;
 
 export const DoctorsContainer = styled.div`
@@ -39,10 +35,6 @@ export const Wrapper = styled.div`
   flex-direction: row;
   padding: 20px;
 
-  span {
-    color: ${(props) => props.theme.colors.text};
-  }
-
   img {
     width: 46px;
     height: 46px;
@@ -53,7 +45,6 @@ export const Wrapper = styled.div`
     margin-left: 10px;
 
     h4 {
-      color: ${(props) => props.theme.colors.text};
       margin-bottom: 10px;
       text-transform: capitalize;
     }

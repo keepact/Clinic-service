@@ -13,22 +13,16 @@ export const MySelector = styled(Select)`
 
   .react-select__menu {
     background-color: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors.text};
 
     div {
       > div {
         background: ${(props) => props.theme.colors.background};
-        color: ${(props) => props.theme.colors.text};
       }
       > div:hover {
         background: ${(props) => props.theme.colors.primary};
         color: #fff;
       }
     }
-  }
-
-  .react-select__single-value {
-    color: ${(props) => props.theme.colors.text};
   }
 
   .react-select__placeholder {
