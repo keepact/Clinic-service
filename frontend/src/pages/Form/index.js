@@ -75,6 +75,7 @@ function Form({ handleSubmit, submitting, pristine }) {
             <Content>
               <form
                 id="Form"
+                autoComplete="off"
                 onSubmit={handleSubmit((values) =>
                   dispatch(createSchedule(values)),
                 )}>
