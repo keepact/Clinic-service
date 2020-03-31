@@ -47,7 +47,6 @@ function Form({ handleSubmit, submitting, pristine }) {
             <Button
               width="200px"
               padding="0 10px"
-              form="Form"
               onClick={() => history.push('/professionals')}>
               Voltar
             </Button>
