@@ -2,11 +2,18 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 100%;
-  background: #03b4d0;
+  background: ${(props) => props.theme.colors.primary};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 400px;
+  }
 `;
 
 export const Content = styled.div`

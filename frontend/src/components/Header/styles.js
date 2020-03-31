@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   background: ${(props) => props.theme.colors.primary};
-  border: solid 1px ${(props) => props.theme.colors.secundary};
+  border: solid 1px ${(props) => props.theme.colors.primary};
   height: 150px;
   padding: 0 30px;
 `;
