@@ -71,7 +71,7 @@ export const validate = (values) => {
   if (!values.cpf) {
     errors.cpf = 'Esse campo é obrigatório';
   } else if (!validateCpf(values.cpf)) {
-    errors.cpf = 'Formate de cpf inválido';
+    errors.cpf = 'Formato de cpf inválido';
   }
 
   if (!values.source) {
